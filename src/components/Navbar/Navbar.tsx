@@ -1,22 +1,15 @@
 import { useState } from "react";
 import { ReactTyped } from "react-typed";
-import { useAppSelector } from "../../redux-toolkit/hooks";
-import { RootState } from "../../redux-toolkit/store";
+import Buttons from "../Buttons/Buttons";
 
 
 const Navbar = () => {
 
-
-    const view_screen_value = useAppSelector((state: RootState) => { state.viewScreenOption.value })
-    console.log(view_screen_value);
     const [menu, setmenu] = useState(false);
-
 
     const MenuClick = () => {
         setmenu(!menu);
     }
-
-
 
     return (
         <>
@@ -29,8 +22,7 @@ const Navbar = () => {
                         </a>
                     </div>
                     <div className="hidden medium:block" >
-                        <button className="bg-slate-400 text-white rounded-full p-3 hover:cursor-pointer hover:bg-slate-700 mr-2" >Real Time Weather</button>
-                        <button className="bg-slate-400 text-white rounded-full p-3 hover:cursor-pointer hover:bg-slate-700 mr-5" >Forecast Weather</button>
+                        <Buttons />
                     </div>
                     <div className="medium:hidden ml-14">
                         <button onClick={MenuClick} ><span className="material-symbols-outlined relative top-1">{`${menu ? 'close' : 'menu'}`}</span></button>
@@ -38,8 +30,7 @@ const Navbar = () => {
                 </div>
                 {menu && (
                     <div className="medium:hidden flex justify-center">
-                        <button className="bg-slate-400 text-white rounded-full p-3 hover:cursor-pointer hover:bg-slate-700 mr-2" >Real Time Weather</button>
-                        <button className="bg-slate-400 text-white rounded-full p-3 hover:cursor-pointer hover:bg-slate-700 mr-5" >Forecast Weather</button>
+                        <Buttons />
                     </div>
                 )}
             </div>
